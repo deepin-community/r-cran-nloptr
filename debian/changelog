@@ -1,0 +1,72 @@
+r-cran-nloptr (1.2.2.3-1) unstable; urgency=medium
+
+  * New upstream release
+  
+  * debian/control: Set Build-Depends: to current R version
+  * debian/control: Set Standards-Version: to current version  
+  * debian/control: Switch to virtual debhelper-compat (= 11)
+  * debian/compat: Removed
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Fri, 05 Nov 2021 12:35:19 -0500
+
+r-cran-nloptr (1.2.2.2-1) unstable; urgency=medium
+
+  * New upstream release
+  
+  * debian/control: Set Build-Depends: to current R version
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Mon, 06 Jul 2020 08:28:53 -0500
+
+r-cran-nloptr (1.2.2.1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Sat, 14 Mar 2020 09:34:08 -0500
+
+r-cran-nloptr (1.2.2-1) unstable; urgency=medium
+
+  * New upstream release
+  
+  * debian/control: Set Build-Depends: to current R version
+  * debian/control: Set Standards-Version: to current version 
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Thu, 05 Mar 2020 13:53:50 -0600
+
+r-cran-nloptr (1.2.1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Fri, 05 Oct 2018 22:21:50 -0500
+
+r-cran-nloptr (1.2.0-1) unstable; urgency=medium
+
+  * New upstream release
+
+  * debian/control: Set Build-Depends: to current R version
+  * debian/control: Set Build-Depends: to 'debhelper (>= 10)'
+  * debian/control: Set Standards-Version: to current version 
+  * debian/control: Add Vcs-Browser: and Vcs-Git:
+  * debian/compat: Increase level to 10
+  * debian/control: Switch from cdbs to dh-r
+  * debian/rules: Idem
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Fri, 05 Oct 2018 21:49:37 -0500
+
+r-cran-nloptr (1.0.4-1) unstable; urgency=low
+
+  * New upstream release
+  
+  * debian/patches/series: Disable previous as upstream integrated our
+    contributed configure{,.ac} and related changes
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Mon, 04 Aug 2014 17:26:10 -0500
+
+r-cran-nloptr (1.0.0-1) unstable; urgency=low
+
+  * Initial Debian release 				(Closes: #753852)
+
+  * src/Makevars:  Simplified to use the Debian library package for nlopt
+  
+ -- Dirk Eddelbuettel <edd@debian.org>  Sat, 05 Jul 2014 12:36:21 -0500
+
+
