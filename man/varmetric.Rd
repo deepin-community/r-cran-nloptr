@@ -4,8 +4,17 @@
 \alias{varmetric}
 \title{Shifted Limited-memory Variable-metric}
 \usage{
-varmetric(x0, fn, gr = NULL, rank2 = TRUE, lower = NULL,
-  upper = NULL, nl.info = FALSE, control = list(), ...)
+varmetric(
+  x0,
+  fn,
+  gr = NULL,
+  rank2 = TRUE,
+  lower = NULL,
+  upper = NULL,
+  nl.info = FALSE,
+  control = list(),
+  ...
+)
 }
 \arguments{
 \item{x0}{initial point for searching the optimum.}
@@ -27,13 +36,13 @@ not specified.}
 }
 \value{
 List with components:
-  \item{par}{the optimal solution found so far.}
-  \item{value}{the function value corresponding to \code{par}.}
-  \item{iter}{number of (outer) iterations, see \code{maxeval}.}
-  \item{convergence}{integer code indicating successful completion (> 0)
-    or a possible error number (< 0).}
-  \item{message}{character string produced by NLopt and giving additional
-    information.}
+\item{par}{the optimal solution found so far.}
+\item{value}{the function value corresponding to \code{par}.}
+\item{iter}{number of (outer) iterations, see \code{maxeval}.}
+\item{convergence}{integer code indicating successful completion (> 0)
+or a possible error number (< 0).}
+\item{message}{character string produced by NLopt and giving additional
+information.}
 }
 \description{
 Shifted limited-memory variable-metric algorithm.
@@ -50,12 +59,12 @@ limited-memory variable-metric algorithm.
 \examples{
 
 flb <- function(x) {
-    p <- length(x)
-    sum(c(1, rep(4, p-1)) * (x - c(1, x[-p])^2)^2)
+  p <- length(x)
+  sum(c(1, rep(4, p-1)) * (x - c(1, x[-p])^2)^2)
 }
 # 25-dimensional box constrained: par[24] is *not* at the boundary
 S <- varmetric(rep(3, 25), flb, lower=rep(2, 25), upper=rep(4, 25),
-           nl.info = TRUE, control = list(xtol_rel=1e-8))
+     nl.info = TRUE, control = list(xtol_rel=1e-8))
 ## Optimal value of objective function:  368.105912874334
 ## Optimal value of controls: 2  ...  2  2.109093  4
 

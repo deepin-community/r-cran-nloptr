@@ -4,8 +4,15 @@
 \alias{neldermead}
 \title{Nelder-Mead Simplex}
 \usage{
-neldermead(x0, fn, lower = NULL, upper = NULL, nl.info = FALSE,
-  control = list(), ...)
+neldermead(
+  x0,
+  fn,
+  lower = NULL,
+  upper = NULL,
+  nl.info = FALSE,
+  control = list(),
+  ...
+)
 }
 \arguments{
 \item{x0}{starting point for searching the optimum.}
@@ -22,20 +29,20 @@ neldermead(x0, fn, lower = NULL, upper = NULL, nl.info = FALSE,
 }
 \value{
 List with components:
-  \item{par}{the optimal solution found so far.}
-  \item{value}{the function value corresponding to \code{par}.}
-  \item{iter}{number of (outer) iterations, see \code{maxeval}.}
-  \item{convergence}{integer code indicating successful completion (> 0)
-    or a possible error number (< 0).}
-  \item{message}{character string produced by NLopt and giving additional
-    information.}
+\item{par}{the optimal solution found so far.}
+\item{value}{the function value corresponding to \code{par}.}
+\item{iter}{number of (outer) iterations, see \code{maxeval}.}
+\item{convergence}{integer code indicating successful completion (> 0)
+or a possible error number (< 0).}
+\item{message}{character string produced by NLopt and giving additional
+information.}
 }
 \description{
 An implementation of almost the original Nelder-Mead simplex algorithm.
 }
 \details{
-Provides xplicit support for bound constraints, using essentially the method
-proposed in [Box].  Whenever a new point would lie outside the bound
+Provides explicit support for bound constraints, using essentially the method
+proposed in Box.  Whenever a new point would lie outside the bound
 constraints the point is moved back exactly onto the constraint.
 }
 \note{
@@ -46,19 +53,23 @@ instead.
 
 # Fletcher and Powell's helic valley
 fphv <- function(x)
-    100*(x[3] - 10*atan2(x[2], x[1])/(2*pi))^2 +
-        (sqrt(x[1]^2 + x[2]^2) - 1)^2 +x[3]^2
+  100*(x[3] - 10*atan2(x[2], x[1])/(2*pi))^2 +
+    (sqrt(x[1]^2 + x[2]^2) - 1)^2 +x[3]^2
 x0 <- c(-1, 0, 0)
-neldermead(x0, fphv)    #  1 0 0
+neldermead(x0, fphv)  #  1 0 0
 
 # Powell's Singular Function (PSF)
 psf <- function(x)  (x[1] + 10*x[2])^2 + 5*(x[3] - x[4])^2 +
-                    (x[2] - 2*x[3])^4 + 10*(x[1] - x[4])^4
+          (x[2] - 2*x[3])^4 + 10*(x[1] - x[4])^4
 x0 <- c(3, -1, 0, 1)
-neldermead(x0, psf)     #  0 0 0 0, needs maximum number of function calls
+neldermead(x0, psf)   #  0 0 0 0, needs maximum number of function calls
 
 \dontrun{
 # Bounded version of Nelder-Mead
+rosenbrock <- function(x) { ## Rosenbrock Banana function
+  100 * (x[2] - x[1]^2)^2 + (1 - x[1])^2 +
+  100 * (x[3] - x[2]^2)^2 + (1 - x[2])^2
+}
 lower <- c(-Inf, 0,   0)
 upper <- c( Inf, 0.5, 1)
 x0 <- c(0, 0.1, 0.1)

@@ -11,7 +11,7 @@ newuoa(x0, fn, nl.info = FALSE, control = list(), ...)
 
 \item{fn}{objective function that is to be minimized.}
 
-\item{nl.info}{logical; shall the original NLopt info been shown.}
+\item{nl.info}{logical; shall the original \acronym{NLopt} info be shown.}
 
 \item{control}{list of options, see \code{nl.opts} for help.}
 
@@ -19,33 +19,39 @@ newuoa(x0, fn, nl.info = FALSE, control = list(), ...)
 }
 \value{
 List with components:
-  \item{par}{the optimal solution found so far.}
-  \item{value}{the function value corresponding to \code{par}.}
-  \item{iter}{number of (outer) iterations, see \code{maxeval}.}
-  \item{convergence}{integer code indicating successful completion (> 0)
-    or a possible error number (< 0).}
-  \item{message}{character string produced by NLopt and giving additional
-    information.}
+\item{par}{the optimal solution found so far.}
+\item{value}{the function value corresponding to \code{par}.}
+\item{iter}{number of (outer) iterations, see \code{maxeval}.}
+\item{convergence}{integer code indicating successful completion (> 0)
+or a possible error number (< 0).}
+\item{message}{character string produced by NLopt and giving additional
+information.}
 }
 \description{
-NEWUOA solves quadratic subproblems in a spherical trust regionvia a
-truncated conjugate-gradient algorithm. For bound-constrained problems,
-BOBYQA shold be used instead, as Powell developed it as an enhancement
-thereof for bound constraints.
+\acronym{NEWUOA} solves quadratic subproblems in a spherical trust region via
+a truncated conjugate-gradient algorithm. For bound-constrained problems,
+\acronym{BOBYQA} should be used instead, as Powell developed it as an
+enhancement thereof for bound constraints.
 }
 \details{
-This is an algorithm derived from the NEWUOA Fortran subroutine of Powell,
-converted to C and modified for the NLOPT stopping criteria.
+This is an algorithm derived from the \acronym{NEWUOA} Fortran subroutine of
+Powell, converted to C and modified for the \acronym{NLopt} stopping
+criteria.
 }
 \note{
-NEWUOA may be largely superseded by BOBYQA.
+\acronym{NEWUOA} may be largely superseded by \acronym{BOBYQA}.
 }
 \examples{
 
-fr <- function(x) {   ## Rosenbrock Banana function
-    100 * (x[2] - x[1]^2)^2 + (1 - x[1])^2
-}
-(S <- newuoa(c(1, 2), fr))
+## Rosenbrock Banana function
+
+rbf <- function(x) {(1 - x[1]) ^ 2 + 100 * (x[2] - x[1] ^ 2) ^ 2}
+
+S <- newuoa(c(1, 2), rbf)
+
+## The function as written above has a minimum of 0 at (1, 1)
+
+S
 
 }
 \references{
