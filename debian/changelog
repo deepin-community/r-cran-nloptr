@@ -1,3 +1,43 @@
+r-cran-nloptr (2.1.1-1) unstable; urgency=medium
+
+  * New upstream release
+  
+  * debian/control: Set Build-Depends: to current R version
+  * debian/control: Set Standards-Version: to current version  
+  * debian/control: Switch to virtual debhelper-compat (= 13)
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Mon, 08 Jul 2024 01:08:32 -0500
+
+r-cran-nloptr (2.0.3-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Sun, 29 May 2022 08:58:20 -0500
+
+r-cran-nloptr (2.0.2-1) unstable; urgency=medium
+
+  * New upstream release
+  
+  * debian/control: Set Standards-Version: to current version  
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Fri, 20 May 2022 09:05:56 -0500
+
+r-cran-nloptr (2.0.1-1) unstable; urgency=medium
+
+  * New upstream release
+  
+  * debian/control: Set Build-Depends: to current R version
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Tue, 03 May 2022 09:23:13 -0500
+
+r-cran-nloptr (2.0.0-1) unstable; urgency=medium
+
+  * New upstream release
+
+  * debian/control: Add Build-Depends: on r-cran-testthat
+
+ -- Dirk Eddelbuettel <edd@debian.org>  Sat, 29 Jan 2022 08:12:02 -0600
+
 r-cran-nloptr (1.2.2.3-1) unstable; urgency=medium
 
   * New upstream release
